@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Variable = new Schema(
+const Log = new Schema(
   {
     title: { type: String, required: true },
     imgURL: { type: String, required: true },
@@ -11,4 +11,4 @@ const Variable = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("variable", Variable);
+module.exports = mongoose.model("logs", Log);

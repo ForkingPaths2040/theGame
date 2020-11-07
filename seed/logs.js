@@ -8,7 +8,7 @@ const main = async () => {
     {
     }
     ];
-  await Log.insertMany(variable);
+  await Log.insertMany(logs);
   console.log("Created vaiables!");
   };
 const run = async () => {
