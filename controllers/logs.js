@@ -1,11 +1,11 @@
-const Logs = require("../models/log");
+const Log = require("../models/log");
 const db = require("../db/connection");
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const getLogs = async (req, res) => {
   try {
-    const logs = await Logs.find();
+    const logs = await Log.find();
     res.json(logs);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -15,7 +15,7 @@ const getLogs = async (req, res) => {
 const getLog = async (req, res) => {
   try {
     const { id } = req.params;
-    const log = await Logs.findById(id);
+    const log = await Log.findById(id);
     if (log) {
       return res.json(log);
     }
@@ -38,7 +38,7 @@ const createLog = async (req, res) => {
 
 const updateLog = async (req, res) => {
   const { id } = req.params;
-  await Log.findByIdAndUpdate(id, req.body, { new: true }, (error, post) => {
+  await Log.findByIdAndUpdate(id, req.body, { new: true }, (error, log) => {
     if (error) {
       return res.status(500).json({ error: error.message });
     }

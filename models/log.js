@@ -3,10 +3,8 @@ const Schema = mongoose.Schema;
 
 const Log = new Schema(
   {
-    title: { type: String, required: true },
-    imgURL: { type: String, required: true },
-    content: { type: String, required: true },
-    author: { type: String, required: true },
+    date: { type: String, required: true },
+    source: { type: String, required: true }
   },
   { timestamps: true }
 );
